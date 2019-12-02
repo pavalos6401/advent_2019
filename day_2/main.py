@@ -35,7 +35,6 @@ class Day2:
                 # Calculate the codes
                 self.do_codes()
                 # If the code is the solution then return the answer
-                print("Pos 0: " + str(self.intcodes[0]) + " with i=" + str(i) + " and j=" + str(j))
                 if (self.intcodes[0] == GOAL):
                     return (100 * i + j)
                     break
