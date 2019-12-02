@@ -5,7 +5,7 @@ class Day1():
         # Total fuel necessary
         total_fuel = 0
         # The file containing all the masses
-        file_object = open('data/masses.txt')
+        file_object = open('day_1/data/masses.txt')
         # The data from the file
         file_data = file_object.readlines()
         # Check each line
@@ -24,7 +24,7 @@ class Day1():
         # The fuel needed for the fuel of each mass
         current_fuel = 0
         # The file containing all the masses
-        file_object = open('data/masses.txt')
+        file_object = open('day_1/data/masses.txt')
         # The data from the file
         file_data = file_object.readlines()
         # Check each line
@@ -55,4 +55,4 @@ else:
     if part == 2:
         fuel = day_1.part_2()
 # Print the total fuel needed
-print("fuel needed: " + fuel)
+print(fuel)
