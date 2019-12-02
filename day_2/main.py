@@ -8,6 +8,10 @@ class Day2:
         # The list of all the codes in the data
         self.intcodes = list(map(int, open('day_2/data/intcodes.txt').readline().split(',')))
 
+    def reset_intcodes(self):
+        # The list of all the codes in the data
+        self.intcodes = list(map(int, open('day_2/data/intcodes.txt').readline().split(',')))
+
     # Part 1 of Day 2's challenge
     def part_1(self):
         # Replace the noun and verb with 12 and 2 respectively
@@ -25,11 +29,13 @@ class Day2:
         # Brute force it: cycle through all the possible combinations for the noun and verb
         for i in range(100):
             for j in range(100):
+                self.reset_intcodes()
                 # Replace the noun and verb
                 self.replace_noun_and_verb(i, j)
                 # Calculate the codes
                 self.do_codes()
                 # If the code is the solution then return the answer
+                print("Pos 0: " + str(self.intcodes[0]) + " with i=" + str(i) + " and j=" + str(j))
                 if (self.intcodes[0] == GOAL):
                     return (100 * i + j)
                     break
@@ -45,6 +51,7 @@ class Day2:
     def do_codes(self):
         # Loop through the codes
         pos = 0
+        self.done = False
         while (pos <= (len(self.intcodes) - 1)) and (not self.done):
             if self.intcodes[pos] == 1:
                 # Addition case
