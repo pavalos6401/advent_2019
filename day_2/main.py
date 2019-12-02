@@ -31,8 +31,6 @@ class Day2:
                 self.do_codes()
                 # If the code is the solution then return the answer
                 if (self.intcodes[0] == GOAL):
-                    print("i: " + str(i))
-                    print("j: " + str(j))
                     return (100 * i + j)
                     break
 
@@ -68,13 +66,17 @@ class Day2:
     # Two numbers in the next two positions are multiplied
     def opcode2(self, pos):
         self.intcodes[self.intcodes[pos + 3]] = self.intcodes[self.intcodes[pos + 1]] * self.intcodes[self.intcodes[pos + 2]]
+    
     # End the program
     def opcode99(self):
         self.done = True
 
+# Initialize a new instance of the Day2 class
 day_2 = Day2()
+
+# Choose what part to solve
 part = int(input("Part 1 or 2: "))
 if part == 1:
-    print("Final value of position 0: " + str(day_2.part_1()))
+    print("Final value of position 0: " + str(day_2.part_1())) # Part 1
 else:
-    print("100 * Noun + Verb: " + str(day_2.part_2()))
+    print("100 * Noun + Verb: " + str(day_2.part_2()))         # Part 2
