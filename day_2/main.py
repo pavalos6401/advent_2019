@@ -1,6 +1,5 @@
 # Class for Day 2
 class Day2:
-
     # Initiate the class
     def __init__(self):
         # Whether the operations are done or not

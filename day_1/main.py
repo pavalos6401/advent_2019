@@ -1,5 +1,5 @@
 # Class for Day 1
-class Day1():
+class Day1:
     # Part 1
     def part_1(self):
         # Total fuel necessary
