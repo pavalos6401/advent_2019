@@ -52,7 +52,6 @@ part = int(input('Part 1 or 2: '))
 if part == 1:
     fuel = day_1.part_1()
 else:
-    if part == 2:
-        fuel = day_1.part_2()
+    fuel = day_1.part_2()
 # Print the total fuel needed
 print(fuel)

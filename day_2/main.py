@@ -54,13 +54,12 @@ class Day2:
             if self.intcodes[pos] == 1:
                 # Addition case
                 self.opcode1(pos)
+            elif self.intcodes[pos] == 2:
+                # Multiplication case
+                self.opcode2(pos)
             else:
-                if self.intcodes[pos] == 2:
-                    # Multiplication case
-                    self.opcode2(pos)
-                else:
-                    # End case
-                    self.opcode99()
+                # End case
+                self.opcode99()
             # Move 4 positions forward
             pos += 4
 
