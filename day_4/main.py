@@ -78,7 +78,7 @@ class PasswordCracker():
                     if twins_dict['pos'][index] != (twins_dict['pos'][index + 1] + 1):
                         is_real = True        
 
-# Instance of the password cracker
+# Instance of the password cracker class
 password_cracker = PasswordCracker()
 # Find all the possible passwords
 password_cracker.find_passwords()
