@@ -43,7 +43,7 @@ U98,R91,D20,R16,D67,R40,U7,R15,U6,R7 = distance 135
 
 What is the Manhattan distance from the central port to the closest intersection?  
 
-## Part 2  
+## Part 2 (NOT SOLVED)  
 
 It turns out that this circuit is very timing-sensitive; you actually need to minimize the signal delay.  
 
