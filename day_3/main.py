@@ -224,4 +224,4 @@ for key in intersections_with_amount:
 amounts.sort()
 
 # Answer is the lowest
-print(f"Answer to part 2: {amounts}")
+print(f"Answer to part 2: {amounts[0]}")
