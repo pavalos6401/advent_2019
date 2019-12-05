@@ -47,10 +47,7 @@ class PasswordCracker():
             # Boolean whether to save the password or not
             is_real = False
 
-            # Only requirement to check now is the new real twin requirement
-            self.twin = False
-
-             # Dictionary of all the twins iwht their position (of the first in the pair)
+            # Dictionary of all the twins iwht their position (of the first in the pair)
             twins_dict = {
                 'pos': [],
                 'twin': [],
@@ -65,18 +62,29 @@ class PasswordCracker():
                     twins_dict['pos'].append(i)
                     twins_dict['twin'].append(password_digits[i])
 
-            # Sort the ditionary highest to lowest
-            twins_dict['twin'], twins_dict['pos'] = (list(t) for t in zip(*sorted(zip(twins_dict['twin'], twins_dict['pos']))))
-
-            for index in range(len(twins_dict['pos']) - 1):
-                # If the twin pair is unique, then it is a real password
-                if twins_dict['twin'].count(twins_dict['twin'][0]) == 1:
-                    is_real = True
-                # If the highest pair is repeated, then check their positions
-                elif twins_dict['twin'][0] == twins_dict['twin'][1]:
-                    # If the positions are not adjacent, then it is a real password
-                    if twins_dict['pos'][index] != (twins_dict['pos'][index + 1] + 1):
-                        is_real = True        
+            # If there is only one twin, then it is real
+            if len(twins_dict['twin']) == 1:
+                is_real = True
+            # Else cycle through the twins
+            else:
+                for i in range(len(twins_dict['pos'])):
+                    # If the first twin pair is unique, then it is a real password
+                    if twins_dict['twin'].count(twins_dict['twin'][i]) == 1:
+                        is_real = True
+                    # If the first pair is repeated, then check their positions
+                    else:
+                        # Iterate through the twins
+                        for index in range(len(twins_dict['pos']) - 1):
+                            # If there is are two twins of the same value 'next' to each other
+                            if twins_dict['twin'][index] == twins_dict['twin'][index + 1]:
+                                # If the position of them is not adjacent
+                                if abs(twins_dict['pos'][index] - twins_dict['pos'][index + 1]) != 1:
+                                    # You have a real password
+                                    is_real = True
+            
+            # Save the password if it is real
+            if is_real:
+                self.real_passwords.append(password)
 
 # Instance of the password cracker class
 password_cracker = PasswordCracker()
